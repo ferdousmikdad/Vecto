@@ -39,6 +39,17 @@ const UIManager = (function() {
           .then(html => {
             container.innerHTML = html;
             
+            // Special handling for categories container
+            if (containerId === 'categories-container') {
+              const categories = AppState.get('svgData.categories');
+              if (categories && categories.length > 0) {
+                const categoryNav = container.querySelector('.category-nav');
+                if (categoryNav) {
+                  Components.renderCategories(categories, categoryNav);
+                }
+              }
+            }
+            
             // Dispatch a custom event when component is loaded
             const event = new CustomEvent('componentLoaded', {
               detail: { id: containerId, path: filePath }
@@ -64,7 +75,7 @@ const UIManager = (function() {
           });
       });
     }
-    
+
     /**
      * Load all app components
      * @return {Promise} Promise that resolves when all components are loaded
