@@ -1,0 +1,32 @@
+{
+    "items": [
+      {
+        "id": "logo1",
+        "name": "FlexStock",
+        "description": "Stock tracking logo",
+        "category": "logos",
+        "price": 4.99,
+        "filePath": "assets/svg/logos/FlexStock.svg",
+        "previewColor": "primary",
+        "tags": ["finance", "stock", "market", "app", "logo", "business"]
+      },
+      {
+        "id": "logo2",
+        "name": "FlexTable",
+        "description": "Data table logo",
+        "category": "logos",
+        "price": 3.99,
+        "filePath": "assets/svg/logos/FlexTable.svg",
+        "previewColor": "secondary",
+        "tags": ["data", "table", "spreadsheet", "software", "logo", "business"]
+      }
+    ],
+    "categories": [
+      {
+        "id": "logos",
+        "name": "Logos",
+        "count": 2,
+        "icon": "badge-check"
+      }
+    ]
+  }

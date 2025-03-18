@@ -1,0 +1,22 @@
+{
+  "items": [
+    {
+      "id": "svg1",
+      "name": "Currency Circle",
+      "description": "Minimalist icon",
+      "category": "icons",
+      "price": 0,
+      "filePath": "assets/svg/icons/currency-circle.svg",
+      "previewColor": "primary",
+      "tags": ["finance", "money", "currency", "circle", "minimal"]
+    }
+  ],
+  "categories": [
+    {
+      "id": "icons",
+      "name": "Icons",
+      "count": 1,
+      "icon": "home"
+    }
+  ]
+}
