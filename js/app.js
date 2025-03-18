@@ -15,17 +15,17 @@ const App = (function() {
         AppState.set('isLoading', true);
         UIManager.showLoading();
         
-        // Load UI components first
+        // Load SVG data first to ensure it's available for components
+        await DataLoader.loadAllData();
+        console.log('SVG data loaded');
+        
+        // Load UI components after data is loaded
         await UIManager.loadAllComponents();
         console.log('UI components loaded');
         
         // Initialize event listeners
         Events.initEventListeners();
         console.log('Event listeners initialized');
-        
-        // Load SVG data
-        await DataLoader.loadAllData();
-        console.log('SVG data loaded');
         
         // Set up admin functionality if enabled
         if (isAdminEnabled()) {
@@ -35,6 +35,20 @@ const App = (function() {
         // Complete initialization
         AppState.set('isLoading', false);
         UIManager.hideLoading();
+        
+        // Force an update of the featured section
+        Components.updateFeaturedSection();
+        
+        // Force an update of the categories section
+        const categoriesContainer = document.querySelector('.category-nav') || 
+                                 document.querySelector('.categories-section') || 
+                                 document.getElementById('categories-container');
+        if (categoriesContainer) {
+          const categories = AppState.get('svgData.categories');
+          if (categories) {
+            Components.renderCategories(categories, categoriesContainer);
+          }
+        }
         
         console.log('SVG Marketplace initialized successfully');
       } catch (error) {
