@@ -113,23 +113,17 @@ const Components = (function() {
       
       const card = document.createElement('a');
       card.href = '#';
-      card.className = 'group category-item';
+      card.className = `category-item flex flex-col items-center ${isActive ? 'active' : ''}`;
       card.dataset.category = category.id;
       
+      // Simplified card design to match reference
       card.innerHTML = `
-        <div class="bg-light rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover ${
-          isActive ? 'category-active' : ''
-        }">
-          <div class="p-6 flex flex-col items-center">
-            <div class="w-16 h-16 bg-${category.color || 'primary'} bg-opacity-10 rounded-full flex items-center justify-center mb-4 group-hover:bg-${category.color || 'primary'} group-hover:bg-opacity-20 transition-colors duration-300">
-              <svg class="h-8 w-8 text-${category.color || 'primary'}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                ${getCategoryIcon(category.icon)}
-              </svg>
-            </div>
-            <h3 class="text-lg font-medium text-dark mb-1">${category.name}</h3>
-            <p class="text-gray-500 text-sm text-center category-count" data-category="${category.id}">
-              ${category.count || 0} SVGs
-            </p>
+        <div class="category-card py-3 px-5 ${isActive ? 'border border-primary rounded-full' : ''}">
+          <div class="flex items-center">
+            <svg class="h-5 w-5 mr-2 text-${category.color || 'primary'}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              ${getCategoryIcon(category.icon)}
+            </svg>
+            <span class="font-medium">${category.name}</span>
           </div>
         </div>
       `;
@@ -146,21 +140,10 @@ const Components = (function() {
       // Clear container
       container.innerHTML = '';
       
-      // Log for debugging
-      console.log('Rendering categories:', categories.length, 'categories');
-      
-      // Create grid container
-      const grid = document.createElement('div');
-      grid.className = 'grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 category-nav';
-      container.appendChild(grid);
-      
-      // If no categories, show empty state
-      if (!categories || categories.length === 0) {
-        grid.innerHTML = `<div class="col-span-4 text-center p-6 bg-gray-100 rounded-lg">
-          <p class="text-gray-500">No categories found</p>
-        </div>`;
-        return;
-      }
+      // Create a horizontal flex container instead of grid
+      const flex = document.createElement('div');
+      flex.className = 'flex space-x-4 px-4 py-2 overflow-x-auto category-nav';
+      container.appendChild(flex);
       
       // Add "All" category
       const allCategory = {
@@ -175,15 +158,22 @@ const Components = (function() {
       
       // Add 'All' category card
       const allCategoryCard = createCategoryCard(allCategory, activeCategory);
-      grid.appendChild(allCategoryCard);
+      flex.appendChild(allCategoryCard);
       
       // Add each category
       categories.forEach(category => {
-        const card = createCategoryCard(category, activeCategory);
-        grid.appendChild(card);
+        // Update the name to not include count
+        const updatedCategory = {
+          ...category,
+          name: category.name.replace(/\s*\(\d+\)$/, '')  // Remove any count in parentheses
+        };
+        
+        const card = createCategoryCard(updatedCategory, activeCategory);
+        flex.appendChild(card);
       });
     }
-    
+
+
     /**
      * Get SVG icon markup for category
      * @param {string} icon - Icon name

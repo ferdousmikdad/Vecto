@@ -37,18 +37,37 @@ const UIManager = (function() {
             return response.text();
           })
           .then(html => {
-            container.innerHTML = html;
-            
-            // Special handling for categories container
-            if (containerId === 'categories-container') {
-              const categories = AppState.get('svgData.categories');
-              if (categories && categories.length > 0) {
-                const categoryNav = container.querySelector('.category-nav');
-                if (categoryNav) {
-                  Components.renderCategories(categories, categoryNav);
-                }
+            // For categories container, modify the HTML before inserting
+            if (containerId === 'categories-container' && filePath.includes('categories.html')) {
+              // Create a temporary element to parse the HTML
+              const temp = document.createElement('div');
+              temp.innerHTML = html;
+              
+              // Remove the header with "Browse Categories" and "View All"
+              const header = temp.querySelector('.flex.justify-between.items-center.mb-10');
+              if (header) {
+                header.remove();
               }
+              
+              // Update the category grid to be a horizontal flex
+              const categoryGrid = temp.querySelector('.grid.grid-cols-2.md\\:grid-cols-3.lg\\:grid-cols-4.gap-8.category-nav');
+              if (categoryGrid) {
+                categoryGrid.className = 'flex space-x-4 px-4 py-2 overflow-x-auto category-nav';
+              }
+              
+              // Update the section padding
+              const section = temp.querySelector('.categories-section');
+              if (section) {
+                section.classList.remove('py-16');
+                section.classList.add('py-8');
+              }
+              
+              // Get the modified HTML
+              html = temp.innerHTML;
             }
+            
+            // Insert the (potentially modified) HTML
+            container.innerHTML = html;
             
             // Dispatch a custom event when component is loaded
             const event = new CustomEvent('componentLoaded', {
