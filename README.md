@@ -1,4 +1,4 @@
-# SVG Marketplace - Implementation Guide
+# Vecto - Implementation Guide
 
 This guide explains how to properly set up and implement the redesigned SVG Marketplace with best practices.
 
@@ -243,4 +243,5 @@ The admin panel provides these key features:
 2. **SVG Uploader**: Add new SVGs to the marketplace
 3. **SVG Editor**: Edit existing SVGs and their metadata
 4. **Data Manager**: Import and export marketplace data
+
 # Vecto
