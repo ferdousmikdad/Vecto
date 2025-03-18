@@ -147,15 +147,24 @@ const Events = (function() {
           // Update categories when they're loaded
           const categories = AppState.get('svgData.categories');
           if (categories && categories.length > 0) {
-            const container = document.querySelector('.categories-section') || document.getElementById('categories-container');
+            console.log('Categories container loaded, rendering categories');
+            const container = document.querySelector('.category-nav') || 
+                          document.querySelector('.categories-section') || 
+                          document.getElementById('categories-container');
             if (container) {
               Components.renderCategories(categories, container);
             }
+          } else {
+            console.warn('No categories available when categories container was loaded');
           }
           break;
           
         case 'featured-container':
           Components.initFeaturedSection();
+          // Force update of featured section
+          setTimeout(() => {
+            Components.updateFeaturedSection();
+          }, 100);
           break;
       }
     }

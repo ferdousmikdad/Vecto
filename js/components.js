@@ -146,10 +146,21 @@ const Components = (function() {
       // Clear container
       container.innerHTML = '';
       
+      // Log for debugging
+      console.log('Rendering categories:', categories.length, 'categories');
+      
       // Create grid container
       const grid = document.createElement('div');
       grid.className = 'grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 category-nav';
       container.appendChild(grid);
+      
+      // If no categories, show empty state
+      if (!categories || categories.length === 0) {
+        grid.innerHTML = `<div class="col-span-4 text-center p-6 bg-gray-100 rounded-lg">
+          <p class="text-gray-500">No categories found</p>
+        </div>`;
+        return;
+      }
       
       // Add "All" category
       const allCategory = {
