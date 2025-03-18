@@ -11,7 +11,7 @@ const Components = (function() {
      */
     function createSvgCard(item) {
       const card = document.createElement('div');
-      card.className = 'svg-item bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover';
+      card.className = 'svg-item bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover cursor-pointer';
       card.dataset.id = item.id;
       
       // Add SVG preview
@@ -27,10 +27,7 @@ const Components = (function() {
       contentDiv.innerHTML = `
         <h3 class="text-lg font-medium text-dark mb-1">${item.name}</h3>
         <p class="text-gray-500 text-sm mb-3">${item.description}</p>
-        <div class="flex justify-between items-center">
-          <span class="text-sm text-dark">
-            ${item.price === 0 ? 'Free' : '$' + item.price.toFixed(2)}
-          </span>
+        <div class="flex justify-end items-center">
           <div class="flex space-x-2 svg-actions">
             <button class="favorite-btn ${
               isFavorite ? 'text-warning' : 'text-gray-400'
@@ -60,8 +57,30 @@ const Components = (function() {
       `;
       
       card.appendChild(contentDiv);
+      
+      // Add click event to entire card
+      card.addEventListener('click', function(e) {
+        // Only open popup if not clicking on one of the action buttons
+        if (!e.target.closest('.svg-actions') && !e.target.closest('button')) {
+          SvgActions.openSvgPopup(item.id);
+        }
+      });
+      
+      // Add CSS to make the card feel clickable
+      card.style.cursor = 'pointer';
+      
+      // Add a hover effect to emphasize clickability
+      card.addEventListener('mouseenter', function() {
+        this.classList.add('transform', 'scale-105');
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.classList.remove('transform', 'scale-105');
+      });
+      
       return card;
     }
+    
     
     /**
      * Render a grid of SVG cards

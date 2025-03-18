@@ -41,6 +41,31 @@ a:focus-visible,
 }
 
 /* SVG Items */
+
+.svg-item {
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.svg-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+.svg-actions {
+  position: relative;
+  z-index: 10;
+}
+
+.svg-actions button {
+  transition: transform 0.2s ease;
+}
+
+.svg-actions button:hover {
+  transform: scale(1.1);
+}
+*/
+
 .svg-item {
   display: flex;
   flex-direction: column;
