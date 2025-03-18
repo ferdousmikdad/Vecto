@@ -51,6 +51,9 @@ const DataLoader = (function() {
           isLoaded: true
         });
         
+        // Make sure the current category is set to "all" initially
+        AppState.set('currentCategory', 'all');
+        
         // Update UI state
         AppState.set('isLoading', false);
         UIManager.hideLoading();
