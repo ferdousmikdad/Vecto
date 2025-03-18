@@ -9,6 +9,16 @@
       "filePath": "assets/svg/icons/currency-circle.svg",
       "previewColor": "primary",
       "tags": ["finance", "money", "currency", "circle", "minimal"]
+    },
+    {
+      "id": "svg2",
+      "name": "Celebration",
+      "description": "Minimalist icon",
+      "category": "icons",
+      "price": 0,
+      "filePath": "assets/svg/icons/celebration.svg",
+      "previewColor": "primary",
+      "tags": ["finance", "money", "currency", "circle", "minimal"]
     }
   ],
   "categories": [

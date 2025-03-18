@@ -1,5 +1,15 @@
 {
-    "items": [],
+    "items": [{
+        "id": "illustrations1",
+        "name": "FlexStock",
+        "description": "Stock tracking logo",
+        "category": "logos",
+        "price": 4.99,
+        "filePath": "assets/svg/illustration/save-more-money.svg",
+        "previewColor": "primary",
+        "tags": ["finance", "stock", "market", "app", "logo", "business"]
+      }
+    ],
     "categories": [
       {
         "id": "illustrations",

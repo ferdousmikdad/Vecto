@@ -2,23 +2,23 @@
     "items": [
       {
         "id": "ui1",
-        "name": "Button Set",
-        "description": "Modern UI button collection",
+        "name": "Calender",
+        "description": "Classic calender interface",
         "category": "ui",
         "price": 2.99,
-        "filePath": "assets/svg/ui/button-set.svg",
+        "filePath": "assets/svg/ui/Calendar.svg",
         "previewColor": "primary",
         "tags": ["ui", "buttons", "interface", "components"]
       },
       {
         "id": "ui2",
-        "name": "Form Elements",
-        "description": "Essential form UI components",
+        "name": "Get Started",
+        "description": "Simple button with icon",
         "category": "ui",
         "price": 3.99,
-        "filePath": "assets/svg/ui/form-elements.svg",
+        "filePath": "assets/svg/ui/getStarted-with-icon.svg",
         "previewColor": "secondary",
-        "tags": ["ui", "forms", "input", "components", "interface"]
+        "tags": ["ui", "button", "label", "components", "interface"]
       }
     ],
     "categories": [
