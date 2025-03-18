@@ -188,7 +188,10 @@ const Events = (function() {
         if (isLoaded) {
           // Update categories UI
           const categories = AppState.get('svgData.categories');
-          const container = document.querySelector('.categories-section') || document.getElementById('categories-container');
+          const container = document.querySelector('.category-nav') || 
+                           document.querySelector('.categories-section') || 
+                           document.getElementById('categories-container');
+          
           if (container && categories) {
             Components.renderCategories(categories, container);
           }
