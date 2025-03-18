@@ -232,7 +232,7 @@ const Components = (function() {
       gridContainer.className = 'svg-grid-container';
       contentDiv.appendChild(gridContainer);
       
-      // Initial render
+      // Force initial render
       updateFeaturedSection();
       
       // Add event listener for sort change
