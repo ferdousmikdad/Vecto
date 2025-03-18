@@ -1,0 +1,32 @@
+{
+    "items": [
+      {
+        "id": "ui1",
+        "name": "Button Set",
+        "description": "Modern UI button collection",
+        "category": "ui",
+        "price": 2.99,
+        "filePath": "assets/svg/ui/button-set.svg",
+        "previewColor": "primary",
+        "tags": ["ui", "buttons", "interface", "components"]
+      },
+      {
+        "id": "ui2",
+        "name": "Form Elements",
+        "description": "Essential form UI components",
+        "category": "ui",
+        "price": 3.99,
+        "filePath": "assets/svg/ui/form-elements.svg",
+        "previewColor": "secondary",
+        "tags": ["ui", "forms", "input", "components", "interface"]
+      }
+    ],
+    "categories": [
+      {
+        "id": "ui",
+        "name": "UI Elements",
+        "count": 2,
+        "icon": "template"
+      }
+    ]
+  }

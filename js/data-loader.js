@@ -8,7 +8,8 @@ const DataLoader = (function() {
     const DATA_SOURCES = [
       { name: 'icons', path: 'data/svg-icons.json' },
       { name: 'logos', path: 'data/svg-logos.json' },
-      { name: 'illustrations', path: 'data/svg-illustrations.json' }
+      { name: 'illustrations', path: 'data/svg-illustrations.json' },
+      { name: 'ui', path: 'data/svg-ui.json' }
     ];
     
     /**
