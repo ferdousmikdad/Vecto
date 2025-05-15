@@ -3,9 +3,19 @@
         "id": "illustrations1",
         "name": "FlexStock",
         "description": "Stock tracking logo",
-        "category": "logos",
+        "category": "illustrations",
         "price": 4.99,
         "filePath": "assets/svg/illustration/save-more-money.svg",
+        "previewColor": "primary",
+        "tags": ["finance", "stock", "market", "app", "logo", "business"]
+      },
+      {
+        "id": "illustrations2",
+        "name": "Instant AI Transcription",
+        "description": "Instant-AI-Transcription",
+        "category": "illustrations",
+        "price": 4.99,
+        "filePath": "assets/svg/illustration/Instant-AI-Transcription.svg",
         "previewColor": "primary",
         "tags": ["finance", "stock", "market", "app", "logo", "business"]
       }
