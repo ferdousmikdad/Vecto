@@ -18,6 +18,26 @@
         "filePath": "assets/svg/illustration/Instant-AI-Transcription.svg",
         "previewColor": "primary",
         "tags": ["finance", "stock", "market", "app", "logo", "business"]
+      },
+      {
+        "id": "illustrations3",
+        "name": "Screen-Recording",
+        "description": "Screen-Recording",
+        "category": "illustrations",
+        "price": 4.99,
+        "filePath": "assets/svg/illustration/Screen-Recording.svg",
+        "previewColor": "primary",
+        "tags": ["finance", "stock", "market", "app", "logo", "business"]
+      },
+      {
+        "id": "illustrations4",
+        "name": "AI Powered Transcription",
+        "description": "AI-Powered-Transcription",
+        "category": "illustrations",
+        "price": 4.99,
+        "filePath": "assets/svg/illustration/AI-Powered-Transcription.svg",
+        "previewColor": "primary",
+        "tags": ["finance", "stock", "market", "app", "logo", "business"]
       }
     ],
     "categories": [
